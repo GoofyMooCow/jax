@@ -1,0 +1,25 @@
+version = "0.1.0"
+
+[artifacts.linux-arm64]
+file = "jax-toolchain-0.1.0-linux-arm64.tar"
+sha256 = "44f2fa8198d01b915546ddb5194856bc0457aff262bae72f069ebb584dcfbc81"
+
+[artifacts.linux-x64]
+file = "jax-toolchain-0.1.0-linux-x64.tar"
+sha256 = "667789ca575ec4297dfa2810818d8ec0212991d89c59b5d7df2c5220f0f74e08"
+
+[artifacts.macos-arm64]
+file = "jax-toolchain-0.1.0-macos-arm64.tar"
+sha256 = "bcc8bcac94370c39189aa006b8b103acbb948af29b4c2391c5ddb1abec3f6150"
+
+[artifacts.macos-x64]
+file = "jax-toolchain-0.1.0-macos-x64.tar"
+sha256 = "018513cefa2da22b7c3d2e2c927e0393ea84dbdb1485505f64542233df2eb347"
+
+[artifacts.windows-arm64]
+file = "jax-toolchain-0.1.0-windows-arm64.tar"
+sha256 = "55f55b71e2f81760818818b6e74493fc9fde56fe10140d072c3ba0530b4ff90b"
+
+[artifacts.windows-x64]
+file = "jax-toolchain-0.1.0-windows-x64.tar"
+sha256 = "70131bfbb284fe240c6433273a9002da0c71e70d3a6aa07ba937e34e17ed747a"

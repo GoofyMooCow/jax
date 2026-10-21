@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jax — a portability-first programming language</title>
+<meta name="description" content="Jax is a small, readable, strongly typed language designed so projects are easy to move, rebuild and ship.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d9480f'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='800' font-size='20' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html"><span class="mark">J</span>Jax</a>
+  <nav class="main">
+    <a href="docs/index.html">Docs</a>
+    <a href="docs/language.html">Language</a>
+    <a href="docs/toolchain.html">Toolchain</a>
+    <a href="docs/status.html">Status</a>
+    <a href="https://github.com/GoofyMooCow/jax">GitHub</a>
+  </nav>
+</div></header>
+<main>
+<div class="wrap hero">
+  <span class="badge">Stage 0 · alpha</span>
+  <h1>Write it once.<br><em>Move it anywhere.</em></h1>
+  <p class="lead">Jax is a small, readable, strongly typed language built around one idea: a project should be easy to move, easy to rebuild years later, and easy to hand to people who have never heard of Jax.</p>
+  <div class="cta"><a class="btn primary" href="docs/index.html">Get started</a><a class="btn" href="docs/language.html">Tour the language</a></div>
+  <div class="install">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true">Linux &amp; macOS</button>
+      <button role="tab" aria-selected="false">Windows</button>
+      <button role="tab" aria-selected="false">From source</button>
+    </div>
+    <div class="panel on">
+      <div class="cmd"><span class="prompt">$</span><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code><button class="copy">Copy</button></div>
+      <p class="note">Installs the launcher into <code>~/.jax/bin</code>, adds it to your PATH and downloads the latest toolchain. Needs <code>curl</code>.</p>
+    </div>
+    <div class="panel">
+      <div class="cmd"><span class="prompt">&gt;</span><code>irm https://goofymoocow.github.io/jax/install.ps1 | iex</code><button class="copy">Copy</button></div>
+      <p class="note">Run in PowerShell. Installs into <code>%LOCALAPPDATA%\Jax</code> and adds it to your user PATH. No administrator rights needed.</p>
+    </div>
+    <div class="panel">
+      <div class="cmd"><span class="prompt">$</span><code>git clone https://github.com/GoofyMooCow/jax &amp;&amp; cd jax &amp;&amp; cargo xtask dist</code><button class="copy">Copy</button></div>
+      <p class="note">Needs Rust 1.75+. There are no other dependencies. See <a href="docs/index.html#source">Building from source</a>.</p>
+    </div>
+  </div>
+</div>
+
+<section class="alt"><div class="wrap">
+  <h2>Readable, with the checks you want</h2>
+  <p class="sub">Types are inferred inside functions. Enums and <code>match</code> are exhaustive. There is no <code>null</code>: a value that may be missing says so in its type.</p>
+  <div class="split">
+<pre><code class="jax">enum Shape {
+    Circle(radius: Float)
+    Rect(width: Float, height: Float)
+    Point
+}
+
+fn area(s: Shape) -> Float {
+    match s {
+        Circle(r) => 3.0 * r * r
+        Rect(w, h) => w * h
+        Point => 0.0
+    }
+}
+
+fn main() {
+    let big = Shape.Rect(width: 2.0, height: 3.0)
+    print("area is {area(big)}")
+}</code></pre>
+    <div class="term"><div class="bar"><i></i><i></i><i></i></div>
+<pre><code><span class="dim">$</span> jax new shapes &amp;&amp; cd shapes
+<span class="dim">$</span> jax run
+<span class="out">area is 6.0</span>
+
+<span class="dim"># forget a case and the compiler tells you:</span>
+error[E0200]: non-exhaustive `match`:
+  not covered: Shape.Point
+  = help: add the missing cases or
+          a wildcard `_` arm</code></pre></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Portability is the whole point</h2>
+  <p class="sub">Every part of Jax is designed so that a project behaves the same on your laptop, a friend's machine and a build server, today and in ten years.</p>
+  <div class="grid">
+    <div class="card"><h3>Pinned toolchains</h3><p>Every project says exactly which Jax it uses: <code>jax = "0.1.0"</code>. Ranges are rejected on purpose. Upgrading one project never touches another.</p></div>
+    <div class="card"><h3>Automatic downloads</h3><p>Run a project and the launcher fetches any missing toolchain, verifies its SHA-256, installs it atomically and caches it. Versions live side by side.</p></div>
+    <div class="card"><h3>One-file executables</h3><p><code>jax build</code> produces a single file that runs on machines with no Jax installed. Cross-build with <code>--target</code>.</p></div>
+    <div class="card"><h3>No dependencies, no setup</h3><p>The whole toolchain is built with zero third-party crates, so bootstrapping is reproducible and works offline.</p></div>
+    <div class="card"><h3>One command</h3><p>Create, check, build, run and test with a single <code>jax</code> tool. Errors show the source line and suggest fixes.</p></div>
+    <div class="card"><h3>Capsules <span class="tag">planned</span></h3><p>Self-contained project archives with dependencies, tools and even the toolchain inside, so a project can be rebuilt with no network at all.</p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>How it works</h2>
+  <p class="sub">Two small pieces: a launcher you install once, and toolchains that come and go on demand.</p>
+  <div class="steps">
+    <div class="step"><h3>The project decides</h3><p><code>jax.toml</code> pins the exact toolchain version, and it is committed with your code.</p></div>
+    <div class="step"><h3>The launcher fetches</h3><p>The tiny <code>jax</code> launcher finds that version, downloading and verifying it first if it is missing.</p></div>
+    <div class="step"><h3>You ship one file</h3><p><code>jax build</code> embeds your program in a runtime stub: a standalone executable for each platform.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Honest status</h2>
+  <p class="sub">Jax is at stage 0. The language core, toolchain manager and build pipeline work end to end, and plenty is still ahead.</p>
+  <div class="grid">
+    <div class="card"><h3>Works today</h3><p>Functions, structs, enums, pattern matching, optionals, lists, tests, the launcher, automatic toolchain install, standalone builds, and good diagnostics.</p></div>
+    <div class="card"><h3>Not yet</h3><p>Generics, traits, closures, <code>Result</code> and <code>?</code>, async, modules across files, the package manager and capsules. Also: programs run on a bytecode VM, not native machine code yet.</p></div>
+  </div>
+  <p style="margin-top:22px"><a href="docs/status.html">Read the full status page →</a></p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <div>Jax is open source under the MIT license. Stage 0 (alpha).</div>
+  <div><a href="docs/index.html">Docs</a> · <a href="docs/status.html">Status</a> · <a href="https://github.com/GoofyMooCow/jax">Source</a> · <a href="install.sh">install.sh</a> · <a href="install.ps1">install.ps1</a></div>
+</div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
