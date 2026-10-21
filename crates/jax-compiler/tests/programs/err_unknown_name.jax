@@ -1,0 +1,5 @@
+// error: did you mean `count`?
+fn main() {
+    let count = 1
+    print(cont.to_text())
+}

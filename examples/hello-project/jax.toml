@@ -1,0 +1,11 @@
+[project]
+name = "hello-project"
+version = "0.1.0"
+kind = "app"
+jax = "0.1.0"   # exact toolchain version; ranges are not allowed
+description = "A tiny Jax application"
+
+[dependencies]
+
+[build]
+targets = ["linux-x64", "windows-x64", "macos-arm64"]

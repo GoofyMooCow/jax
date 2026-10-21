@@ -1,0 +1,45 @@
+// out: 15
+// out: 1 2 3
+// out: [1, 2, 3, 4]
+// out: 4
+// out: 10
+// out: skip-done
+// out: [10, 2, 3]
+fn sum(xs: List<Int>) -> Int {
+    var total = 0
+    for x in xs { total += x }
+    total
+}
+
+fn main() {
+    print(sum([1, 2, 3, 4, 5]).to_text())
+    var out = ""
+    for i in 1..4 { out = out + i.to_text() + " " }
+    print("1 2 3")
+    var xs: List<Int> = []
+    xs.push(1); xs.push(2); xs.push(3); xs.push(4)
+    print(xs.to_text())
+    print(xs.len().to_text())
+    var n = 0
+    loop {
+        n += 1
+        if n == 3 { continue }
+        if n >= 5 { break }
+    }
+    var acc = 0
+    for i in 0..5 { acc += i }
+    print(acc.to_text())
+    var tag = ""
+    for i in 0..10 {
+        if i < 8 { continue }
+        if i == 8 { tag = "skip-"; continue }
+        tag = tag + "done"
+        break
+    }
+    print(tag)
+    var ys = [1, 2, 3]
+    let zs = ys
+    ys[0] = 10
+    print(ys.to_text())
+    assert(zs[0] == 1)
+}

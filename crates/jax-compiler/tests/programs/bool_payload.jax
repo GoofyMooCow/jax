@@ -1,0 +1,13 @@
+// out: fresh
+// out: pantry
+enum Food { Item(fresh: Bool) }
+fn label(f: Food) -> Text {
+    match f {
+        Item(true) => "fresh"
+        Item(false) => "pantry"
+    }
+}
+fn main() {
+    print(label(Food.Item(true)))
+    print(label(Food.Item(fresh: false)))
+}

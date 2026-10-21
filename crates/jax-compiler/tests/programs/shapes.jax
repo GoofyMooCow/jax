@@ -1,0 +1,34 @@
+// out: circle area 12.0
+// out: rect area 6.0
+// out: point area 0.0
+// out: perfect square
+// out: not square
+enum Shape {
+    Circle(radius: Float)
+    Rect(width: Float, height: Float)
+    Point
+}
+
+fn area(s: Shape) -> Float {
+    match s {
+        Circle(r) => 3.0 * r * r
+        Rect(w, h) => w * h
+        Point => 0.0
+    }
+}
+
+fn kind(s: Shape) -> Text {
+    match s {
+        Rect(w, h) if w == h => "perfect square"
+        Rect(_, _) => "not square"
+        _ => "other"
+    }
+}
+
+fn main() {
+    print("circle area {area(Shape.Circle(radius: 2.0))}")
+    print("rect area {area(Shape.Rect(width: 2.0, height: 3.0))}")
+    print("point area {area(Shape.Point)}")
+    print(kind(Shape.Rect(2.0, 2.0)))
+    print(kind(Shape.Rect(2.0, 3.0)))
+}

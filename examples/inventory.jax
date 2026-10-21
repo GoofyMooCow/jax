@@ -1,0 +1,78 @@
+//! jax 0.1.0
+// A slightly bigger program: enums, structs, methods, lists, optionals and tests.
+
+enum Category {
+    Tool
+    Food(perishable: Bool)
+    Other
+}
+
+struct Item {
+    name: Text
+    price: Float
+    qty: Int
+    category: Category
+}
+
+impl Item {
+    fn total(self) -> Float { self.price * self.qty.to_float() }
+    fn restock(mut self, amount: Int) { self.qty += amount }
+}
+
+fn label(c: Category) -> Text {
+    match c {
+        Tool => "tool"
+        Food(true) => "fresh food"
+        Food(false) => "pantry"
+        Other => "misc"
+    }
+}
+
+fn cheapest(items: List<Item>) -> Item? {
+    var best: Item? = none
+    for it in items {
+        match best {
+            none => best = it
+            some(b) => if it.price < b.price { best = it }
+        }
+    }
+    best
+}
+
+fn main() {
+    var items: List<Item> = []
+    items.push(Item(name: "hammer", price: 12.5, qty: 3, category: Category.Tool))
+    items.push(Item(name: "apples", price: 0.5, qty: 40, category: Category.Food(perishable: true)))
+    items.push(Item(name: "rice", price: 2.0, qty: 10, category: Category.Food(false)))
+
+    var grand = 0.0
+    for it in items {
+        print("{it.name}: {it.qty} x {it.price} = {it.total()} ({label(it.category)})")
+        grand += it.total()
+    }
+    print("total: {grand}")
+
+    if let c = cheapest(items) { print("cheapest: {c.name}") }
+
+    var h = items[0]
+    h.restock(7)
+    print("hammers after restock: {h.qty}, before: {items[0].qty}")
+}
+
+test "totals are quantity times price" {
+    let i = Item(name: "x", price: 2.0, qty: 4, category: Category.Other)
+    assert(i.total() == 8.0)
+}
+
+test "restock does not alias" {
+    let a = Item(name: "x", price: 1.0, qty: 1, category: Category.Other)
+    var b = a
+    b.restock(5)
+    assert(a.qty == 1)
+    assert(b.qty == 6)
+}
+
+test "cheapest of nothing is none" {
+    let empty: List<Item> = []
+    assert(cheapest(empty) == none)
+}

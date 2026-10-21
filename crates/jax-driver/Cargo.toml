@@ -1,0 +1,18 @@
+[package]
+name = "jax-driver"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The toolchain-side Jax CLI (check, build, run, test, new, ...)"
+
+[[bin]]
+name = "jax-driver"
+path = "src/main.rs"
+
+[dependencies]
+jax-syntax = { path = "../jax-syntax" }
+jax-bytecode = { path = "../jax-bytecode" }
+jax-compiler = { path = "../jax-compiler" }
+jax-vm = { path = "../jax-vm" }
+jax-manifest = { path = "../jax-manifest" }
+jax-toolchain = { path = "../jax-toolchain" }

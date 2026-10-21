@@ -1,0 +1,7 @@
+/target
+/dist
+/build
+.jax/
+*.jxb
+.idea/
+.git/

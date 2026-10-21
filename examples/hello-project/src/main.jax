@@ -1,0 +1,13 @@
+const GREETING = "Hello"
+
+fn greet(name: Text, excited: Bool = false) -> Text {
+    if excited { "{GREETING}, {name}!" } else { "{GREETING}, {name}." }
+}
+
+fn main() {
+    print(greet("Jax", excited: true))
+}
+
+test "greeting" {
+    assert(greet("Ada") == "Hello, Ada.")
+}

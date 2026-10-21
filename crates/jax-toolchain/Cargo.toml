@@ -1,0 +1,8 @@
+[package]
+name = "jax-toolchain"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+jax-manifest = { path = "../jax-manifest" }

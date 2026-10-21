@@ -1,0 +1,39 @@
+// out: Ada Lovelace (id 1)
+// out: no email
+// out: ada@example.org
+// out: no email
+// out: Ada
+// out: 3
+struct User {
+    id: Int
+    name: Text
+    email: Text?
+}
+
+impl User {
+    fn label(self) -> Text { "{self.name} (id {self.id})" }
+    fn rename(mut self, new_name: Text) { self.name = new_name }
+    fn contact(self) -> Text { self.email ?? "no email" }
+}
+
+struct Counter { count: Int }
+
+impl Counter {
+    fn new() -> Counter { Counter(count: 0) }
+    fn bump(mut self) { self.count += 1 }
+}
+
+fn main() {
+    var u = User(id: 1, name: "Ada", email: none)
+    u.rename("Ada Lovelace")
+    print(u.label())
+    print(u.contact())
+    let v = u with { email: "ada@example.org" }
+    print(v.contact())
+    print(u.contact())          // `u` is unchanged: structs are values
+    let w = User(id: 2, name: "Ada", email: none)
+    print(w.name)
+    var c = Counter.new()
+    c.bump(); c.bump(); c.bump()
+    print(c.count.to_text())
+}

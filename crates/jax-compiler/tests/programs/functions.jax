@@ -1,0 +1,33 @@
+// out: Hello, Ada.
+// out: Hello, Ada!
+// out: 55
+// out: 3628800
+const LIMIT = 10
+const SCALE = LIMIT * 2
+
+fn greet(name: Text, excited: Bool = false) -> Text {
+    if excited { "Hello, {name}!" } else { "Hello, {name}." }
+}
+
+fn fib(n: Int) -> Int {
+    if n < 2 { return n }
+    fib(n - 1) + fib(n - 2)
+}
+
+fn fact(n: Int) -> Int {
+    var acc = 1
+    var i = 2
+    while i <= n {
+        acc *= i
+        i += 1
+    }
+    acc
+}
+
+fn main() {
+    print(greet("Ada"))
+    print(greet("Ada", excited: true))
+    print(fib(LIMIT).to_text())
+    print(fact(LIMIT).to_text())
+    assert(SCALE == 20)
+}

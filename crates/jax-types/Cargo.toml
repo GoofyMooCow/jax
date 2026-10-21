@@ -1,0 +1,9 @@
+[package]
+name = "jax-types"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+jax-syntax = { path = "../jax-syntax" }
+jax-bytecode = { path = "../jax-bytecode" }

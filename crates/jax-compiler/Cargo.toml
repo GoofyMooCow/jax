@@ -1,0 +1,14 @@
+[package]
+name = "jax-compiler"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+jax-syntax = { path = "../jax-syntax" }
+jax-types = { path = "../jax-types" }
+jax-codegen = { path = "../jax-codegen" }
+jax-bytecode = { path = "../jax-bytecode" }
+
+[dev-dependencies]
+jax-vm = { path = "../jax-vm" }

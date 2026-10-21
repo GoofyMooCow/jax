@@ -1,0 +1,4 @@
+// error: expected
+fn main( {
+    print("x")
+}

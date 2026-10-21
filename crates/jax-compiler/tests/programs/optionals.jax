@@ -1,0 +1,28 @@
+// out: fallback
+// out: hello
+// out: got hello
+// out: nothing
+// out: 5
+// out: Ada
+// out: none
+struct Person { name: Text, boss: Person? }
+
+fn find(items: List<Text>, i: Int) -> Text? { items.get(i) }
+
+fn main() {
+    let a: Text? = none
+    print(a ?? "fallback")
+    let b: Text? = "hello"
+    print(b ?? "fallback")
+    if let s = b { print("got {s}") } else { print("nothing") }
+    if let s = a { print("got {s}") } else { print("nothing") }
+    let names = ["x", "yy", "zzzzz"]
+    print((find(names, 2) ?? "").len().to_text())
+    let p = Person(name: "Grace", boss: Person(name: "Ada", boss: none))
+    print(p.boss?.name ?? "nobody")
+    let q = Person(name: "Ada", boss: none)
+    match q.boss {
+        none => print("none")
+        some(x) => print(x.name)
+    }
+}

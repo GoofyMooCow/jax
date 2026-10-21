@@ -1,0 +1,9 @@
+// error: non-exhaustive `match`
+enum Color { Red, Green, Blue }
+fn name(c: Color) -> Text {
+    match c {
+        Red => "red"
+        Green => "green"
+    }
+}
+fn main() { print(name(Color.Blue)) }

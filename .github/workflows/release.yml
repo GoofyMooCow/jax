@@ -1,0 +1,58 @@
+# Builds the toolchain on every platform, merges the results and publishes them
+# (together with the website) to the gh-pages branch, which GitHub Pages serves.
+#
+# Trigger: push a tag such as v0.1.0 (it must match the workspace version), or run manually.
+# One-time setup: Settings -> Pages -> Source: "Deploy from a branch" -> gh-pages / (root).
+name: Release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        # Runner labels change over time; adjust here if one is retired.
+        include:
+          - { os: ubuntu-latest,     name: linux-x64 }
+          - { os: ubuntu-24.04-arm,  name: linux-arm64 }
+          - { os: macos-15-intel,    name: macos-x64 }
+          - { os: macos-latest,      name: macos-arm64 }
+          - { os: windows-latest,    name: windows-x64 }
+          - { os: windows-11-arm,    name: windows-arm64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test --workspace
+      - run: cargo xtask dist --out dist-${{ matrix.name }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.name }}
+          path: dist-${{ matrix.name }}
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+      - name: Merge platform builds and add the website
+        run: |
+          cargo xtask merge --out public/dist parts/*
+          cp -r site/. public/
+          touch public/.nojekyll
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # Keep older toolchain versions: releases are never deleted.
+          keep_files: true

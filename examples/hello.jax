@@ -1,0 +1,8 @@
+// out: Hello, Jax!
+// out: 3 + 4 = 7
+fn main() {
+    print("Hello, Jax!")
+    let a = 3
+    let b = 4
+    print("{a} + {b} = {a + b}")
+}

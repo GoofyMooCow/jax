@@ -1,0 +1,10 @@
+[package]
+name = "jax-codegen"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+jax-syntax = { path = "../jax-syntax" }
+jax-types = { path = "../jax-types" }
+jax-bytecode = { path = "../jax-bytecode" }

@@ -1,0 +1,8 @@
+[package]
+name = "jax-vm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+jax-bytecode = { path = "../jax-bytecode" }

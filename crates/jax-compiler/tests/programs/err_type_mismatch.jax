@@ -1,0 +1,5 @@
+// error: type mismatch: expected `Int`, found `Text`
+fn main() {
+    let x: Int = "hello"
+    print(x.to_text())
+}

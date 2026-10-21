@@ -1,0 +1,5 @@
+// error: closures is not supported yet
+fn main() {
+    let f = |x| x * 2
+    print("hi")
+}
