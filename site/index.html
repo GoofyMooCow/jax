@@ -3,54 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jax — a portability-first programming language</title>
+<title>Jax: a portability-first programming language</title>
 <meta name="description" content="Jax is a small, readable, strongly typed language designed so projects are easy to move, rebuild and ship.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d9480f'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='800' font-size='20' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23cf4309'/%3E%3Ctext x='16' y='24' font-family='Arial' font-weight='800' font-size='22' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('jax-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <link rel="stylesheet" href="assets/site.css">
+<script>(function(){var R=["", "download", "docs", "docs/language", "docs/toolchain", "docs/status"];window.jaxRoutes=R;window.jaxParse=function(h){h=(h||"").replace(/^#/,"");if(h.charAt(0)!=="/")return null;h=h.slice(1);var s=R.slice().sort(function(a,b){return b.length-a.length});for(var i=0;i<s.length;i++){var r=s[i];if(!r)continue;if(h===r)return{route:r,anchor:""};if(h.indexOf(r+"/")===0)return{route:r,anchor:h.slice(r.length+1)}}return{route:"",anchor:""}};var p=window.jaxParse(location.hash);document.documentElement.setAttribute("data-route",p?p.route:"")})();</script>
+<style>.view{display:none}
+html[data-route=""] .view[data-route=""] { display: block; }
+html[data-route="download"] .view[data-route="download"] { display: block; }
+html[data-route="docs"] .view[data-route="docs"] { display: block; }
+html[data-route="docs/language"] .view[data-route="docs/language"] { display: block; }
+html[data-route="docs/toolchain"] .view[data-route="docs/toolchain"] { display: block; }
+html[data-route="docs/status"] .view[data-route="docs/status"] { display: block; }</style><noscript><style>.view{display:block !important}</style></noscript>
 </head>
-<body>
+<body data-root="">
+<a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
-  <a class="logo" href="index.html"><span class="mark">J</span>Jax</a>
-  <nav class="main">
-    <a href="docs/index.html">Docs</a>
-    <a href="docs/language.html">Language</a>
-    <a href="docs/toolchain.html">Toolchain</a>
-    <a href="docs/status.html">Status</a>
-    <a href="https://github.com/GoofyMooCow/jax">GitHub</a>
-  </nav>
+  <a class="logo" href="#/"><span class="mark">J</span>Jax</a>
+  <nav class="main" id="nav" aria-label="Main"><a href="#/download">Download</a><a href="#/docs">Docs</a><a href="#/docs/language">Language</a><a href="#/docs/toolchain">Toolchain</a><a href="#/docs/status">Status</a><a href="https://github.com/GoofyMooCow/jax">GitHub</a></nav>
+  <div class="actions">
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
 </div></header>
-<main>
-<div class="wrap hero">
-  <span class="badge">Stage 0 · alpha</span>
-  <h1>Write it once.<br><em>Move it anywhere.</em></h1>
-  <p class="lead">Jax is a small, readable, strongly typed language built around one idea: a project should be easy to move, easy to rebuild years later, and easy to hand to people who have never heard of Jax.</p>
-  <div class="cta"><a class="btn primary" href="docs/index.html">Get started</a><a class="btn" href="docs/language.html">Tour the language</a></div>
+<main id="main" tabindex="-1">
+<div class="view" data-route="" data-title="Jax: a portability-first programming language">
+
+
+<section class="hero"><div class="wrap hero-grid">
+  <div class="hero-text">
+    <span class="stage">Stage 0, alpha</span>
+    <h1>Write it once. Move it anywhere.</h1>
+    <p class="lead">Jax is a small, readable, strongly typed language built around one idea: a project should be easy to move, easy to rebuild years later, and easy to hand to people who have never heard of Jax.</p>
+    <p class="fine">Free and open source. No account, no dependencies, works offline once installed.</p>
+  </div>
+  <aside class="manifest" aria-label="Download">
+    <h2>Download Jax</h2>
+    <p class="for">Detected: <strong data-fill="platform">your computer</strong></p>
+    <dl>
+      <div class="row"><dt>Launcher</dt><i></i><dd data-fill="file">jax</dd></div>
+      <div class="row"><dt>Size</dt><i></i><dd>under 1 MB</dd></div>
+      <div class="row"><dt>Toolchain</dt><i></i><dd>v<span data-fill="version">0.1.0</span></dd></div>
+      <div class="row"><dt>Checked with</dt><i></i><dd>SHA-256</dd></div>
+    </dl>
+    <a class="btn primary lg block" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+    <p class="more"><a href="#/download/builds">Other platforms</a><a href="#/download/verify">Verify the download</a></p>
+    <div class="after" role="status"><strong>Next:</strong> move <code data-fill="file">jax</code> into a folder on your PATH, open a new terminal and run <code>jax new hello</code>. The installer below does all of this for you.</div>
+  </aside>
+  <div class="install-slot" style="grid-area:install">
   <div class="install">
-    <div class="tabs" role="tablist">
+    <div class="tabs" role="tablist" aria-label="Install method">
       <button role="tab" aria-selected="true">Linux &amp; macOS</button>
       <button role="tab" aria-selected="false">Windows</button>
       <button role="tab" aria-selected="false">From source</button>
     </div>
     <div class="panel on">
-      <div class="cmd"><span class="prompt">$</span><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code><button class="copy">Copy</button></div>
+      <div class="cmd"><span class="prompt">$</span><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code><button class="copy" type="button">Copy</button></div>
       <p class="note">Installs the launcher into <code>~/.jax/bin</code>, adds it to your PATH and downloads the latest toolchain. Needs <code>curl</code>.</p>
     </div>
     <div class="panel">
-      <div class="cmd"><span class="prompt">&gt;</span><code>irm https://goofymoocow.github.io/jax/install.ps1 | iex</code><button class="copy">Copy</button></div>
+      <div class="cmd"><span class="prompt">&gt;</span><code>irm https://goofymoocow.github.io/jax/install.ps1 | iex</code><button class="copy" type="button">Copy</button></div>
       <p class="note">Run in PowerShell. Installs into <code>%LOCALAPPDATA%\Jax</code> and adds it to your user PATH. No administrator rights needed.</p>
     </div>
     <div class="panel">
-      <div class="cmd"><span class="prompt">$</span><code>git clone https://github.com/GoofyMooCow/jax &amp;&amp; cd jax &amp;&amp; cargo xtask dist</code><button class="copy">Copy</button></div>
-      <p class="note">Needs Rust 1.75+. There are no other dependencies. See <a href="docs/index.html#source">Building from source</a>.</p>
+      <div class="cmd"><span class="prompt">$</span><code>git clone https://github.com/GoofyMooCow/jax &amp;&amp; cd jax &amp;&amp; cargo xtask dist</code><button class="copy" type="button">Copy</button></div>
+      <p class="note">Needs Rust 1.75+. There are no other dependencies. See <a href="#/docs/building-from-source">Building from source</a>.</p>
     </div>
   </div>
-</div>
+  </div>
+</div></section>
 
-<section class="alt"><div class="wrap">
-  <h2>Readable, with the checks you want</h2>
+<section class="band deep"><div class="wrap">
+  <h2 class="big">How a Jax project gets built</h2>
+  <p class="sub">Two small pieces: a launcher you install once, and toolchains that arrive when a project asks for them.</p>
+  <div class="route">
+    <div class="stop"><h3>The project decides</h3><p><code>jax.toml</code> pins the exact toolchain version and is committed with your code.</p><pre class="mini">[project]
+jax = "0.1.0"</pre></div>
+    <div class="stop"><h3>The launcher fetches</h3><p>The tiny <code>jax</code> launcher finds that version, downloading and verifying it first if it is missing.</p><pre class="mini">$ jax run
+fetching 0.1.0 ... ok</pre></div>
+    <div class="stop"><h3>You ship one file</h3><p><code>jax build</code> embeds your program in a runtime stub: a standalone executable for each platform.</p><pre class="mini">$ jax build
+Built hello (421.9 KiB)</pre></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2 class="big">Readable, with the checks you want</h2>
   <p class="sub">Types are inferred inside functions. Enums and <code>match</code> are exhaustive. There is no <code>null</code>: a value that may be missing says so in its type.</p>
-  <div class="split">
-<pre><code class="jax">enum Shape {
+  <div class="show">
+    <div class="codewin"><div class="bar">src/main.jax</div><pre><code class="jax">enum Shape {
     Circle(radius: Float)
     Rect(width: Float, height: Float)
     Point
@@ -67,9 +108,8 @@ fn area(s: Shape) -> Float {
 fn main() {
     let big = Shape.Rect(width: 2.0, height: 3.0)
     print("area is {area(big)}")
-}</code></pre>
-    <div class="term"><div class="bar"><i></i><i></i><i></i></div>
-<pre><code><span class="dim">$</span> jax new shapes &amp;&amp; cd shapes
+}</code></pre></div>
+    <div class="codewin"><div class="bar">terminal</div><pre><code><span class="dim">$</span> jax new shapes &amp;&amp; cd shapes
 <span class="dim">$</span> jax run
 <span class="out">area is 6.0</span>
 
@@ -81,42 +121,442 @@ error[E0200]: non-exhaustive `match`:
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <h2>Portability is the whole point</h2>
-  <p class="sub">Every part of Jax is designed so that a project behaves the same on your laptop, a friend's machine and a build server, today and in ten years.</p>
-  <div class="grid">
-    <div class="card"><h3>Pinned toolchains</h3><p>Every project says exactly which Jax it uses: <code>jax = "0.1.0"</code>. Ranges are rejected on purpose. Upgrading one project never touches another.</p></div>
-    <div class="card"><h3>Automatic downloads</h3><p>Run a project and the launcher fetches any missing toolchain, verifies its SHA-256, installs it atomically and caches it. Versions live side by side.</p></div>
-    <div class="card"><h3>One-file executables</h3><p><code>jax build</code> produces a single file that runs on machines with no Jax installed. Cross-build with <code>--target</code>.</p></div>
-    <div class="card"><h3>No dependencies, no setup</h3><p>The whole toolchain is built with zero third-party crates, so bootstrapping is reproducible and works offline.</p></div>
-    <div class="card"><h3>One command</h3><p>Create, check, build, run and test with a single <code>jax</code> tool. Errors show the source line and suggest fixes.</p></div>
-    <div class="card"><h3>Capsules <span class="tag">planned</span></h3><p>Self-contained project archives with dependencies, tools and even the toolchain inside, so a project can be rebuilt with no network at all.</p></div>
+<section class="band paper"><div class="wrap feat">
+  <div class="feat-head"><h2 class="big">Built to be portable</h2>
+  <p class="sub">A project behaves the same on your laptop, a friend's machine and a build server, today and in ten years.</p></div>
+  <div class="rules">
+    <div><h3>Pinned toolchains</h3><p>Every project says exactly which Jax it uses: <code>jax = "0.1.0"</code>. Ranges are rejected on purpose. Upgrading one project never touches another.</p></div>
+    <div><h3>Automatic downloads</h3><p>Run a project and the launcher fetches any missing toolchain, verifies its SHA-256, installs it atomically and caches it. Versions live side by side.</p></div>
+    <div><h3>One-file executables</h3><p><code>jax build</code> produces a single file that runs on machines with no Jax installed. Cross-build with <code>--target</code>.</p></div>
+    <div><h3>No dependencies, no setup</h3><p>The whole toolchain is built with zero third-party crates, so bootstrapping is reproducible and works offline.</p></div>
+    <div><h3>One command</h3><p>Create, check, build, run and test with a single <code>jax</code> tool. Errors show the source line and suggest fixes.</p></div>
+    <div><h3>Capsules <span class="pill">planned</span></h3><p>Self-contained project archives with dependencies, tools and even the toolchain inside, so a project can be rebuilt with no network at all.</p></div>
   </div>
 </div></section>
 
-<section class="alt"><div class="wrap">
-  <h2>How it works</h2>
-  <p class="sub">Two small pieces: a launcher you install once, and toolchains that come and go on demand.</p>
-  <div class="steps">
-    <div class="step"><h3>The project decides</h3><p><code>jax.toml</code> pins the exact toolchain version, and it is committed with your code.</p></div>
-    <div class="step"><h3>The launcher fetches</h3><p>The tiny <code>jax</code> launcher finds that version, downloading and verifying it first if it is missing.</p></div>
-    <div class="step"><h3>You ship one file</h3><p><code>jax build</code> embeds your program in a runtime stub: a standalone executable for each platform.</p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <h2>Honest status</h2>
+<section class="band"><div class="wrap">
+  <h2 class="big">Status</h2>
   <p class="sub">Jax is at stage 0. The language core, toolchain manager and build pipeline work end to end, and plenty is still ahead.</p>
-  <div class="grid">
-    <div class="card"><h3>Works today</h3><p>Functions, structs, enums, pattern matching, optionals, lists, tests, the launcher, automatic toolchain install, standalone builds, and good diagnostics.</p></div>
-    <div class="card"><h3>Not yet</h3><p>Generics, traits, closures, <code>Result</code> and <code>?</code>, async, modules across files, the package manager and capsules. Also: programs run on a bytecode VM, not native machine code yet.</p></div>
+  <div class="two">
+    <div><h3>Works today</h3><ul class="ticks"><li>Functions, structs, enums, pattern matching, optionals, lists and tests</li><li>The launcher and automatic toolchain install</li><li>Standalone builds and portable bundles</li><li>Diagnostics with source excerpts and suggestions</li></ul></div>
+    <div><h3>Not yet</h3><ul class="ticks todo"><li>Generics, traits, closures, <code>Result</code> and <code>?</code></li><li>Async and modules across files</li><li>The package manager and capsules</li><li>Native machine code: programs run on a bytecode VM for now</li></ul></div>
   </div>
-  <p style="margin-top:22px"><a href="docs/status.html">Read the full status page →</a></p>
+  <p style="margin-top:28px"><a href="#/docs/status">Read the full status page</a></p>
 </div></section>
+
+<section class="band deep"><div class="wrap closing">
+  <div><h2 class="big">Try it</h2>
+  <p class="sub" style="margin-bottom:26px">One command installs the launcher and the latest toolchain. Your first program runs in about two minutes.</p>
+  <div class="btn-row"><a class="btn primary lg" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a><a class="btn lg on-deep" href="#/docs">Read the guide</a></div></div>
+  <div class="install"><div class="panel"><div class="cmd"><span class="prompt">$</span><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code><button class="copy" type="button">Copy</button></div><p class="note" style="color:var(--on-deep-muted)">On Windows, use the <a href="#/download/install">PowerShell command</a>.</p></div></div>
+</div></section>
+
+
+</div>
+<div class="view" data-route="download" data-title="Download Jax">
+
+<section class="dl-hero"><div class="wrap hero-grid">
+  <div class="hero-text">
+    <h1 class="page-title">Download Jax</h1>
+    <p class="lead">You download the launcher, a program under 1 MB. The first time you run a project, it fetches the toolchain that project asks for.</p>
+    <div class="btn-row"><a class="btn lg" href="#install">Use the install command</a><a class="btn lg" href="#builds">All platforms</a></div>
+  </div>
+  <aside class="manifest" aria-label="Download">
+    <h2>Your download</h2>
+    <p class="for">Detected: <strong data-fill="platform">your computer</strong></p>
+    <dl>
+      <div class="row"><dt>Launcher</dt><i></i><dd data-fill="file">jax</dd></div>
+      <div class="row"><dt>Size</dt><i></i><dd>under 1 MB</dd></div>
+      <div class="row"><dt>Toolchain</dt><i></i><dd>v<span data-fill="version">0.1.0</span></dd></div>
+      <div class="row"><dt>Checked with</dt><i></i><dd>SHA-256</dd></div>
+    </dl>
+    <a class="btn primary lg block" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+    <p class="more"><a href="#/download/builds">Other platforms</a><a href="#/download/verify">Verify the download</a></p>
+    <div class="after" role="status"><strong>Next:</strong> move <code data-fill="file">jax</code> into a folder on your PATH, open a new terminal and run <code>jax new hello</code>. The installer below does all of this for you.</div>
+  </aside>
+</div></section>
+
+<section class="dl-body"><div class="wrap"><div class="prose">
+
+<h2 id="download--install">Install with one command</h2>
+<p>The installer picks the right build for your computer, checks its SHA-256, adds it to your PATH and installs the latest toolchain. It is the recommended route.</p>
+<div class="install">
+    <div class="tabs" role="tablist" aria-label="Install method">
+      <button role="tab" aria-selected="true">Linux &amp; macOS</button>
+      <button role="tab" aria-selected="false">Windows</button>
+      <button role="tab" aria-selected="false">From source</button>
+    </div>
+    <div class="panel on">
+      <div class="cmd"><span class="prompt">$</span><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code><button class="copy" type="button">Copy</button></div>
+      <p class="note">Installs the launcher into <code>~/.jax/bin</code>, adds it to your PATH and downloads the latest toolchain. Needs <code>curl</code>.</p>
+    </div>
+    <div class="panel">
+      <div class="cmd"><span class="prompt">&gt;</span><code>irm https://goofymoocow.github.io/jax/install.ps1 | iex</code><button class="copy" type="button">Copy</button></div>
+      <p class="note">Run in PowerShell. Installs into <code>%LOCALAPPDATA%\Jax</code> and adds it to your user PATH. No administrator rights needed.</p>
+    </div>
+    <div class="panel">
+      <div class="cmd"><span class="prompt">$</span><code>git clone https://github.com/GoofyMooCow/jax &amp;&amp; cd jax &amp;&amp; cargo xtask dist</code><button class="copy" type="button">Copy</button></div>
+      <p class="note">Needs Rust 1.75+. There are no other dependencies. See <a href="#/docs/building-from-source">Building from source</a>.</p>
+    </div>
+  </div>
+
+<h2 id="download--builds">All builds</h2>
+<p>These are the launcher binaries the installers use. Download one, mark it executable (<code>chmod +x jax</code> on Linux and macOS), and put it in a folder on your PATH.</p>
+<table class="builds"><thead><tr><th>Platform</th><th>File</th><th></th></tr></thead><tbody><tr data-row="linux-x64"><td class="os">Linux<small>x64 (Intel and AMD)</small></td><td class="file">linux-x64/jax</td><td class="go"><a class="btn sm" href="dist/bin/linux-x64/jax" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/linux-x64/jax.sha256">checksum</a></td></tr><tr data-row="linux-arm64"><td class="os">Linux<small>arm64</small></td><td class="file">linux-arm64/jax</td><td class="go"><a class="btn sm" href="dist/bin/linux-arm64/jax" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/linux-arm64/jax.sha256">checksum</a></td></tr><tr data-row="macos-arm64"><td class="os">macOS<small>Apple Silicon (M1 and newer)</small></td><td class="file">macos-arm64/jax</td><td class="go"><a class="btn sm" href="dist/bin/macos-arm64/jax" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/macos-arm64/jax.sha256">checksum</a></td></tr><tr data-row="macos-x64"><td class="os">macOS<small>Intel</small></td><td class="file">macos-x64/jax</td><td class="go"><a class="btn sm" href="dist/bin/macos-x64/jax" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/macos-x64/jax.sha256">checksum</a></td></tr><tr data-row="windows-x64"><td class="os">Windows<small>x64 (Intel and AMD)</small></td><td class="file">windows-x64/jax.exe</td><td class="go"><a class="btn sm" href="dist/bin/windows-x64/jax.exe" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/windows-x64/jax.exe.sha256">checksum</a></td></tr><tr data-row="windows-arm64"><td class="os">Windows<small>arm64</small></td><td class="file">windows-arm64/jax.exe</td><td class="go"><a class="btn sm" href="dist/bin/windows-arm64/jax.exe" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>Download</a><a href="dist/bin/windows-arm64/jax.exe.sha256">checksum</a></td></tr></tbody></table>
+<p>Not sure which one? On Linux and macOS, run <code>uname -m</code>: <code>x86_64</code> means x64, <code>arm64</code> or <code>aarch64</code> means arm64. On Windows, open Settings, then System, then About.</p>
+
+<h2 id="download--verify">Verify your download</h2>
+<p>Each launcher has a matching <code>.sha256</code> file. Compare it with the hash of what you downloaded. The two should be identical.</p>
+<h3 id="download--windows">Windows</h3>
+<pre><code>(Get-FileHash .\jax.exe -Algorithm SHA256).Hash.ToLower()
+Get-Content .\jax.exe.sha256</code></pre>
+<h3>Linux and macOS</h3>
+<pre><code>sha256sum jax          <span class="dim"># on macOS: shasum -a 256 jax</span>
+cat jax.sha256</code></pre>
+<div class="callout"><strong>Read before you run.</strong> Piping a script into a shell trusts the server. The scripts are short: <a href="install.sh">install.sh</a> and <a href="install.ps1">install.ps1</a>. Both verify the launcher's checksum before installing it. Releases are verified by checksum only; signatures are on the roadmap.</div>
+
+<h2 id="download--source">Build from source</h2>
+<p>You need Rust 1.75 or newer and nothing else.</p>
+<pre><code>git clone https://github.com/GoofyMooCow/jax
+cd jax
+cargo xtask dist</code></pre>
+<p>Details are in <a href="#/docs/building-from-source">Building from source</a>.</p>
+
+<h2 id="download--next">After installing</h2>
+<pre><code>$ jax new hello
+$ cd hello
+$ jax run
+Hello, Jax!</code></pre>
+<p>Continue with <a href="#/docs">Getting started</a> or take the <a href="#/docs/language">language tour</a>.</p>
+</div></div></section>
+
+</div>
+<div class="view" data-route="docs" data-title="Getting started — Jax">
+<div class="wrap"><div class="docs">
+<aside class="side">
+  <a class="btn primary sm block dl" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+  <h4>Documentation</h4>
+  <a href="#/docs" class="on">Getting started</a>
+  <a href="#/docs/language">Language tour</a>
+  <a href="#/docs/toolchain">Toolchain &amp; versions</a>
+  <a href="#/docs/status">Status &amp; roadmap</a>
+</aside>
+<article>
+<h1>Getting started</h1>
+<p class="lead">Install Jax, make a project, run it and ship it, in about two minutes.</p>
+
+<h2 id="docs--install">Install</h2>
+<p>Prefer a direct download? See the <a href="#/download">download page</a> for every platform.</p>
+<h3>Linux and macOS</h3>
+<pre><code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh</code></pre>
+<h3>Windows (PowerShell)</h3>
+<pre><code>irm https://goofymoocow.github.io/jax/install.ps1 | iex</code></pre>
+<p>The installer downloads the <strong>launcher</strong> (<code>jax</code>, under 1 MB), checks its SHA-256, puts it in <code>~/.jax/bin</code> (<code>%LOCALAPPDATA%\Jax\bin</code> on Windows), adds that folder to your PATH, and installs the latest <strong>toolchain</strong>. Open a new terminal afterwards so the PATH change takes effect.</p>
+<p>Installer options for Linux and macOS go after <code>sh -s --</code>, for example <code>curl -fsSL https://goofymoocow.github.io/jax/install.sh | sh -s -- --no-toolchain</code>. They are <code>--no-modify-path</code>, <code>--no-toolchain</code> and <code>--version X.Y.Z</code>. On Windows set <code>JAX_NO_MODIFY_PATH</code>, <code>JAX_NO_TOOLCHAIN</code> or <code>JAX_VERSION</code> before running.</p>
+<div class="callout"><strong>Read before you run.</strong> Piping a script into a shell trusts the server. The scripts are short: <a href="../install.sh">install.sh</a> and <a href="../install.ps1">install.ps1</a>. Both verify the launcher's checksum before installing it.</div>
+
+<h2 id="docs--first">Your first project</h2>
+<pre><code><span class="dim">$</span> jax new hello
+<span class="dim">$</span> cd hello
+<span class="dim">$</span> jax run
+<span class="out">Hello, Jax!</span></code></pre>
+<p>That created:</p>
+<pre><code>hello/
+  jax.toml        the manifest: name, version and the exact toolchain
+  src/main.jax    your program
+  .gitignore</code></pre>
+<pre><code class="jax">fn main() {
+    print("Hello, Jax!")
+}</code></pre>
+<p>The manifest pins the toolchain the project was created with:</p>
+<pre><code>[project]
+name = "hello"
+version = "0.1.0"
+kind = "app"
+jax = "0.1.0"   # exact toolchain version; ranges are not allowed</code></pre>
+
+<h2 id="docs--build">Build and ship</h2>
+<pre><code><span class="dim">$</span> jax build
+<span class="out">Built build/linux-x64/hello (linux-x64, 421.9 KiB)</span>
+<span class="dim">$</span> ./build/linux-x64/hello
+<span class="out">Hello, Jax!</span></code></pre>
+<p>The result is one self-contained file. Copy it to another machine of the same platform and it runs without Jax installed.</p>
+<ul class="ticks">
+<li><code>jax build --bundle</code> writes a portable <code>.jxb</code> that any Jax runtime can run.</li>
+<li><code>jax build --target windows-x64</code> cross-builds when the installed toolchain includes that runtime.</li>
+</ul>
+
+<h2 id="docs--commands">Commands</h2>
+<table>
+<tr><th>Command</th><th>What it does</th></tr>
+<tr><td><code>jax new &lt;name&gt; [--lib]</code></td><td>Create a project in a new folder</td></tr>
+<tr><td><code>jax init</code></td><td>Create a project in the current folder</td></tr>
+<tr><td><code>jax check [file]</code></td><td>Type-check without producing output</td></tr>
+<tr><td><code>jax run [file]</code></td><td>Compile and run a project or a single <code>.jax</code> file</td></tr>
+<tr><td><code>jax build [file]</code></td><td>Make a standalone executable (<code>--target</code>, <code>--bundle</code>, <code>-o</code>)</td></tr>
+<tr><td><code>jax test [file]</code></td><td>Run <code>test "name" { ... }</code> blocks</td></tr>
+<tr><td><code>jax dump tokens|ast|bytecode &lt;file&gt;</code></td><td>Inspect what the compiler sees</td></tr>
+<tr><td><code>jax toolchain ...</code></td><td>Manage installed toolchains (<a href="#/docs/toolchain">details</a>)</td></tr>
+</table>
+
+<h2 id="docs--uninstall">Uninstall</h2>
+<p>Everything lives in one folder. Delete <code>~/.jax</code> (or <code>%LOCALAPPDATA%\Jax</code>) and remove the line the installer added to your shell profile (or the folder from your user PATH on Windows).</p>
+
+<h2 id="docs--building-from-source">Building from source</h2>
+<p>You need Rust 1.75 or newer and nothing else. The workspace has no third-party dependencies.</p>
+<pre><code>git clone https://github.com/GoofyMooCow/jax
+cd jax
+cargo test --workspace      <span class="dim"># unit and end-to-end tests</span>
+cargo xtask dist            <span class="dim"># writes ./dist: launcher + toolchain archive</span>
+JAX_DIST_URL=file://$PWD/dist ./dist/bin/linux-x64/jax new hello</code></pre>
+<p>Replace <code>linux-x64</code> with your platform (<code>macos-arm64</code>, <code>windows-x64</code>, ...). On Windows use a <code>file:///C:/path/to/dist</code> URL.</p>
+<nav class="pager" aria-label="Pages"><span></span><a class="next" href="#/docs/language"><small>Next</small><b>Language tour</b></a></nav></article>
+</div></div>
+</div>
+<div class="view" data-route="docs/language" data-title="Language tour — Jax">
+<div class="wrap"><div class="docs">
+<aside class="side">
+  <a class="btn primary sm block dl" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+  <h4>Documentation</h4>
+  <a href="#/docs">Getting started</a>
+  <a href="#/docs/language" class="on">Language tour</a>
+  <a href="#/docs/toolchain">Toolchain &amp; versions</a>
+  <a href="#/docs/status">Status &amp; roadmap</a>
+</aside>
+<article>
+<h1>Language tour</h1>
+<p class="lead">Everything on this page runs on the current release.</p>
+
+<h2>Variables and constants</h2>
+<pre><code class="jax">const LIMIT = 10           // compile-time constant
+let name = "Ada"           // immutable, type inferred (Text)
+var visits = 0             // mutable
+visits += 1
+let ratio: Float = 0.75    // annotations are optional
+</code></pre>
+<p>Built-in types: <code>Int</code> (64-bit), <code>Float</code>, <code>Bool</code>, <code>Text</code>, <code>Unit</code>, <code>List&lt;T&gt;</code>. There are no implicit conversions: use <code>.to_float()</code>, <code>.to_int()</code>, <code>.to_text()</code>. Statements end at a newline; there are no semicolons to forget.</p>
+
+<h2>Functions</h2>
+<pre><code class="jax">fn greet(name: Text, excited: Bool = false) -> Text {
+    if excited { "Hello, {name}!" } else { "Hello, {name}." }
+}
+
+print(greet("Ada", excited: true))   // named arguments, defaults
+</code></pre>
+<p>The last expression is the result. <code>if</code>, <code>match</code> and blocks are expressions. Strings interpolate with <code>{expr}</code>.</p>
+
+<h2>Structs and methods</h2>
+<pre><code class="jax">struct User {
+    id: Int
+    name: Text
+    email: Text?
+}
+
+impl User {
+    fn label(self) -> Text { "{self.name} (id {self.id})" }
+    fn rename(mut self, new_name: Text) { self.name = new_name }
+}
+
+var u = User(id: 1, name: "Ada", email: none)
+u.rename("Ada Lovelace")
+let v = u with { email: "ada@example.org" }   // u is unchanged
+</code></pre>
+<p>Structs are values: assigning or passing one never aliases it. Methods take <code>self</code> (read-only) or <code>mut self</code>, and the compiler refuses to modify through a read-only receiver.</p>
+
+<h2>Enums and pattern matching</h2>
+<pre><code class="jax">enum Food {
+    Fresh(days: Int)
+    Pantry
+}
+
+fn describe(f: Food) -> Text {
+    match f {
+        Fresh(d) if d <= 1 => "eat it today"
+        Fresh(d) => "good for {d} days"
+        Pantry => "keeps forever"
+    }
+}
+</code></pre>
+<p><code>match</code> must be exhaustive for enums, <code>Bool</code> and optionals. Patterns support payload bindings, guards, literals, ranges (<code>1..=9</code>), alternatives (<code>A | B</code>) and wildcards.</p>
+
+<h2>No null: optionals</h2>
+<pre><code class="jax">let email: Text? = none
+let shown = email ?? "no email"          // default
+let boss_name = person.boss?.name        // safe access: Text?
+if let e = email { print("mail {e}") }   // unwrap safely
+match email {
+    none => print("nothing")
+    some(e) => print(e)
+}
+</code></pre>
+<p>A <code>T?</code> cannot be used where a <code>T</code> is required. The compiler tells you to use <code>??</code>, <code>if let</code> or <code>!</code> (which panics on <code>none</code>).</p>
+
+<h2>Loops and lists</h2>
+<pre><code class="jax">var total = 0
+for i in 1..=10 { total += i }            // ranges
+
+var xs: List&lt;Int&gt; = []
+xs.push(3); xs.push(4)
+for x in xs { total += x }
+let third = xs.get(2)                     // Int? (never panics)
+loop { break }
+while total > 0 { total -= 10 }
+</code></pre>
+<p>Lists are values too (copy on write). <code>xs[i]</code> panics when out of range; <code>xs.get(i)</code> returns an optional.</p>
+
+<h2>Tests</h2>
+<pre><code class="jax">test "greeting" {
+    assert(greet("Ada") == "Hello, Ada.")
+}
+</code></pre>
+<p>Run them with <code>jax test</code>. Tests live next to the code they check.</p>
+
+<h2>Built-ins</h2>
+<table>
+<tr><th>Name</th><th>Meaning</th></tr>
+<tr><td><code>print(x)</code></td><td>Print an Int, Float, Bool or Text followed by a newline</td></tr>
+<tr><td><code>assert(cond)</code>, <code>panic(msg)</code></td><td>Abort the program with a stack trace (exit code 101)</td></tr>
+<tr><td><code>text.len()</code>, <code>list.len()</code></td><td>Length (characters for text)</td></tr>
+<tr><td><code>list.push(x)</code>, <code>list.get(i)</code></td><td>Append; checked access</td></tr>
+<tr><td><code>x.to_text()</code>, <code>n.to_float()</code>, <code>f.to_int()</code>, <code>f.sqrt()</code></td><td>Conversions and math</td></tr>
+</table>
+<div class="callout"><strong>Not yet available:</strong> generics, trait bounds, closures, <code>Result</code> with <code>?</code>, async, maps, tuples and multi-file modules. They parse, and the compiler reports <code>E0900 ... is not supported yet</code> rather than miscompiling. See <a href="#/docs/status">status</a>.</div>
+<nav class="pager" aria-label="Pages"><a class="prev" href="#/docs"><small>Previous</small><b>Getting started</b></a><a class="next" href="#/docs/toolchain"><small>Next</small><b>Toolchain &amp; versions</b></a></nav></article>
+</div></div>
+</div>
+<div class="view" data-route="docs/toolchain" data-title="Toolchain &amp; versions — Jax">
+<div class="wrap"><div class="docs">
+<aside class="side">
+  <a class="btn primary sm block dl" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+  <h4>Documentation</h4>
+  <a href="#/docs">Getting started</a>
+  <a href="#/docs/language">Language tour</a>
+  <a href="#/docs/toolchain" class="on">Toolchain &amp; versions</a>
+  <a href="#/docs/status">Status &amp; roadmap</a>
+</aside>
+<article>
+<h1>Toolchain &amp; versions</h1>
+<p class="lead">How Jax keeps a project building the same way on every machine, for years.</p>
+
+<h2>Two pieces</h2>
+<table>
+<tr><th>Piece</th><th>What it is</th></tr>
+<tr><td><strong>Launcher</strong> (<code>jax</code>)</td><td>A tiny static program you install once. It reads the project's manifest, makes sure the right toolchain is present, and runs it. It never changes how your code is built.</td></tr>
+<tr><td><strong>Toolchain</strong></td><td>One directory per Jax version containing the compiler/CLI (<code>bin/jax-driver</code>) and the runtime stubs used for executables. Immutable once installed.</td></tr>
+</table>
+
+<h2>Which version runs?</h2>
+<p>The launcher picks the first match:</p>
+<ol>
+<li><code>jax +0.1.0 build</code>: an explicit selector</li>
+<li>the <code>JAX_TOOLCHAIN</code> environment variable</li>
+<li>the <code>jax = "..."</code> pin in the nearest <code>jax.toml</code> (the normal case)</li>
+<li>a <code>//! jax 0.1.0</code> comment in the first lines of a single <code>.jax</code> file</li>
+<li>your default toolchain, else the newest installed, else the newest available</li>
+</ol>
+<p>If the chosen version is missing it is downloaded, its SHA-256 is verified against the release manifest, and it is unpacked and moved into place atomically, so an interrupted download never leaves a half-installed toolchain. Concurrent runs coordinate with a lock.</p>
+
+<h2>Managing toolchains</h2>
+<pre><code>jax toolchain list              <span class="dim"># installed versions (* = default)</span>
+jax toolchain install 0.1.0     <span class="dim"># add --set-default to make it the default</span>
+jax toolchain remove 0.1.0
+jax toolchain default 0.1.0
+jax toolchain which             <span class="dim"># the driver that would run here</span>
+jax toolchain latest            <span class="dim"># newest version the server offers</span>
+jax toolchain prune [--yes]     <span class="dim"># remove versions nothing needs (dry run without --yes)</span></code></pre>
+
+<h2>Where things live</h2>
+<pre><code>~/.jax/                       <span class="dim"># %LOCALAPPDATA%\Jax on Windows; override with JAX_HOME</span>
+  bin/jax                     <span class="dim"># the launcher</span>
+  toolchains/0.1.0/           <span class="dim"># one folder per version</span>
+    bin/jax-driver
+    runtimes/linux-x64/jax-rt
+  config.toml                 <span class="dim"># preferences; never affects build output</span>
+  tmp/  locks/                <span class="dim"># scratch space</span></code></pre>
+
+<h2>Environment variables</h2>
+<table>
+<tr><th>Variable</th><th>Meaning</th></tr>
+<tr><td><code>JAX_HOME</code></td><td>Where Jax keeps toolchains and config</td></tr>
+<tr><td><code>JAX_DIST_URL</code></td><td>Where toolchains are downloaded from (<code>https://</code>, or <code>file://</code> for a local folder)</td></tr>
+<tr><td><code>JAX_OFFLINE=1</code></td><td>Never touch the network; fail with a clear message if something is missing</td></tr>
+<tr><td><code>JAX_TOOLCHAIN</code></td><td>Force a toolchain version</td></tr>
+<tr><td><code>JAX_VERBOSE=1</code></td><td>Say which toolchain was chosen and why</td></tr>
+</table>
+
+<h2>Hosting your own mirror</h2>
+<p>Distribution is just static files. Any web server, object store or shared folder works:</p>
+<pre><code>latest.txt
+toolchains/0.1.0/manifest.toml                          <span class="dim"># sha256 for every platform</span>
+toolchains/0.1.0/jax-toolchain-0.1.0-linux-x64.tar
+bin/linux-x64/jax   and   jax.sha256                    <span class="dim"># the launcher, used by the installers</span></code></pre>
+<p>Point <code>JAX_DIST_URL</code> (or <code>dist_url</code> in <code>config.toml</code>) at it. The default is <code>https://goofymoocow.github.io/jax/dist</code>. For an air-gapped machine, copy a <code>dist</code> folder over and use a <code>file://</code> URL together with <code>JAX_OFFLINE=1</code>.</p>
+
+<h2>Releases are permanent</h2>
+<p>Published toolchain versions are never deleted or rewritten, so a project pinned to <code>0.1.0</code> still builds later. Downloads are verified by SHA-256; signature verification is on the roadmap.</p>
+<nav class="pager" aria-label="Pages"><a class="prev" href="#/docs/language"><small>Previous</small><b>Language tour</b></a><a class="next" href="#/docs/status"><small>Next</small><b>Status &amp; roadmap</b></a></nav></article>
+</div></div>
+</div>
+<div class="view" data-route="docs/status" data-title="Status &amp; roadmap — Jax">
+<div class="wrap"><div class="docs">
+<aside class="side">
+  <a class="btn primary sm block dl" data-dl href="#/download/builds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg><span data-dl-label>See all downloads</span></a>
+  <h4>Documentation</h4>
+  <a href="#/docs">Getting started</a>
+  <a href="#/docs/language">Language tour</a>
+  <a href="#/docs/toolchain">Toolchain &amp; versions</a>
+  <a href="#/docs/status" class="on">Status &amp; roadmap</a>
+</aside>
+<article>
+<h1>Status &amp; roadmap</h1>
+<p class="lead">Jax is at <strong>stage 0 (0.1.0)</strong>. This page says plainly what exists.</p>
+
+<h2>Works today</h2>
+<ul class="ticks">
+<li><strong>Launcher and toolchain manager:</strong> pinned versions, automatic download, SHA-256 verification, atomic install, several versions side by side, offline mode, mirrors.</li>
+<li><strong>Manifest:</strong> <code>jax.toml</code> with strict validation (exact versions only, known targets, dependency tables) and a deterministic <code>jax.lock</code> format.</li>
+<li><strong>Language core:</strong> functions with named and default arguments, <code>let</code>/<code>var</code>/<code>const</code>, structs and methods (<code>mut self</code>, <code>with</code>), enums with payloads, exhaustive <code>match</code>, optionals, lists, loops, tests.</li>
+<li><strong>Diagnostics:</strong> source excerpts, error codes, "did you mean" suggestions.</li>
+<li><strong>Builds:</strong> standalone executables, portable <code>.jxb</code> bundles, cross-target builds when the runtime is present.</li>
+<li><strong>Zero third-party dependencies</strong> in the whole toolchain.</li>
+</ul>
+
+<h2>Parsed, but not implemented yet</h2>
+<p>The compiler reports <code>E0900</code> for these instead of guessing:</p>
+<ul class="ticks todo">
+<li>Generics and trait bounds (traits parse; <code>impl Trait for Type</code> adds methods without checking the trait)</li>
+<li>Closures and function values</li>
+<li><code>Result</code> and the <code>?</code> operator; <code>main</code> returning a value</li>
+<li><code>async</code> / <code>await</code> and concurrency primitives</li>
+<li><code>Map</code>, <code>Set</code>, tuples, sized integer types</li>
+<li>Multiple files and modules (<code>use</code> beyond <code>std</code>)</li>
+</ul>
+
+<h2>Planned tooling</h2>
+<ul class="ticks todo">
+<li><code>jax fmt</code>, <code>jax lint</code>, <code>jax doc</code>, <code>jax bench</code>, language server</li>
+<li>Package manager and registry: <code>add</code>, <code>vendor</code>, <code>publish</code>, reproducible resolution</li>
+<li>Capsules (<code>.jcap</code>) and <code>jax dist</code>: sealed archives that rebuild with no network</li>
+<li>Signed releases</li>
+</ul>
+
+<h2>Known differences from the long-term design</h2>
+<div class="callout"><strong>Programs run on a bytecode VM today, not as native machine code.</strong> A built executable is the Jax runtime plus your compiled program in one file. It is portable and self-contained, but slower than the native code Jax is meant to produce. The bytecode format is the seam where native backends will plug in.</div>
+<ul>
+<li>The standard library is small: no files, networking or standard input yet.</li>
+<li>HTTPS downloads use the system <code>curl</code> (present on Windows 10+, macOS and mainstream Linux).</li>
+<li>Releases are verified by checksum only; signatures come later.</li>
+<li>The download site is currently GitHub Pages and will move to a dedicated domain. Installed launchers keep working; see the notes in the repository.</li>
+</ul>
+<nav class="pager" aria-label="Pages"><a class="prev" href="#/docs/toolchain"><small>Previous</small><b>Toolchain &amp; versions</b></a></nav></article>
+</div></div>
+</div>
 </main>
-<footer><div class="wrap">
-  <div>Jax is open source under the MIT license. Stage 0 (alpha).</div>
-  <div><a href="docs/index.html">Docs</a> · <a href="docs/status.html">Status</a> · <a href="https://github.com/GoofyMooCow/jax">Source</a> · <a href="install.sh">install.sh</a> · <a href="install.ps1">install.ps1</a></div>
+<footer class="site"><div class="wrap">
+  <div><a class="logo" href="#/" style="display:inline-flex;padding:0"><span class="mark">J</span>Jax</a>
+  <p>A small, readable, strongly typed language that is easy to move, rebuild and ship. Open source under the MIT license. Stage 0 (alpha).</p></div>
+  <div><h4>Learn</h4><a href="#/docs">Getting started</a><a href="#/docs/language">Language tour</a><a href="#/docs/toolchain">Toolchain &amp; versions</a><a href="#/docs/status">Status &amp; roadmap</a></div>
+  <div><h4>Get Jax</h4><a href="#/download">Download</a><a href="install.sh">install.sh</a><a href="install.ps1">install.ps1</a><a href="https://github.com/GoofyMooCow/jax">Source on GitHub</a></div>
 </div></footer>
 <script src="assets/site.js"></script>
 </body>
