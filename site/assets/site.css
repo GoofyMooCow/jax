@@ -10,7 +10,7 @@ html { overflow-y: scroll; scrollbar-gutter: stable; }
 :root {
   --bg: #ebeeed; --paper: #f7f8f6; --text: #0f1b2a; --muted: #475667;
   --line: #c3cbcf; --line-2: #d8dedf;
-  --orange: #cf4309; --orange-hi: #b03607; --on-orange: #ffffff; --link: #ad3607;
+  --logo: #3e86fd; --orange: #cf4309; --orange-hi: #b03607; --on-orange: #ffffff; --link: #ad3607;
   --tint: #f4e1d8; --hazard: #f2c230; --edge: #0f1b2a;
   --deep: #0f1b2a; --deep-2: #17263a; --on-deep: #e6ecf1; --on-deep-muted: #9aa9b8; --deep-line: #2c4059;
   --code-bg: #0f1b2a; --code-text: #e6ecf1; --code-dim: #7f8d9b;
@@ -58,7 +58,8 @@ img, svg { max-width: 100%; }
 .top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
 .logo { display: flex; align-items: center; gap: 10px; font: 800 30px/1 var(--display); letter-spacing: .01em; color: var(--text); }
 .logo:hover { text-decoration: none; }
-.logo .mark { width: 32px; height: 32px; border-radius: 5px; background: var(--orange); color: var(--on-orange); display: grid; place-items: center; font: 800 24px/1 var(--display); }
+.logo-svg { height: 30px; width: auto; display: block; fill: currentColor; }
+.logo-svg .g { fill: var(--logo); }
 nav.main { display: flex; gap: 26px; margin-left: 14px; font-size: 16px; font-weight: 500; }
 nav.main a { color: var(--muted); padding: 6px 0; border-bottom: 2px solid transparent; }
 nav.main a:hover { color: var(--text); text-decoration: none; }
@@ -117,7 +118,7 @@ nav.main a[aria-current] { color: var(--text); border-bottom-color: var(--orange
 
 /* install box */
 .install { background: var(--paper); border: 1.5px solid var(--line); border-radius: 8px; overflow: hidden; }
-.tabs { display: flex; border-bottom: 1.5px solid var(--line); background: color-mix(in srgb, var(--bg) 60%, var(--paper)); overflow-x: auto; overflow-y: hidden; }
+.tabs { display: flex; border-bottom: 1.5px solid var(--line); background: color-mix(in srgb, var(--bg) 60%, var(--paper)); overflow-x: auto; }
 .tabs button { background: none; border: 0; padding: 12px 18px; font: 600 15.5px var(--sans); color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1.5px; white-space: nowrap; }
 .tabs button:hover { color: var(--text); }
 .tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--orange); background: var(--paper); }
@@ -259,7 +260,13 @@ article h2:hover .anchor, .prose h2:hover .anchor, .anchor:focus { opacity: 1; t
 .dl-body .prose { max-width: 860px; }
 
 /* 404 */
-.lost { padding: 96px 0 140px; max-width: 780px; }
+.lost { padding: 88px 0 120px; max-width: 720px; }
+.lost p.lead { font-size: 1.15rem; line-height: 1.6; color: var(--muted); margin: 0 0 20px; max-width: 34em; }
+.lost .lost-path { color: var(--muted); font-size: 16px; margin: 0 0 24px; overflow-wrap: anywhere; }
+.lost .rules { margin-top: 48px; }
+.lost .rules h3 { margin: 0 0 4px; }
+.lost .rules h3 a { color: var(--text); }
+.lost .rules h3 a:hover { color: var(--link); text-decoration: none; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
@@ -310,7 +317,6 @@ article h2:hover .anchor, .prose h2:hover .anchor, .anchor:focus { opacity: 1; t
 
 /* ---------- plainer pass: quieter type, flatter surfaces ---------- */
 .logo { font: 600 22px/1 var(--sans); letter-spacing: -.01em; }
-.logo .mark { width: 28px; height: 28px; border-radius: 6px; font: 600 18px/1 var(--sans); }
 .hero { padding: 72px 0 88px; }
 .hero h1, .page-title { font: 600 clamp(2.3rem, 4.8vw, 3.7rem)/1.08 var(--sans); letter-spacing: -.025em; margin: 0 0 22px; }
 .hero p.lead, .dl-hero .lead, article p.lead, .prose p.lead { font-size: 1.15rem; line-height: 1.6; }
